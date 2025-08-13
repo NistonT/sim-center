@@ -13,6 +13,7 @@ export interface INavigationRouter {
   logo: string;
   name: string;
   href: string;
+  active?: boolean;
 }
 
 export const navigation: INavigationRouter[] = [
@@ -25,6 +26,7 @@ export const navigation: INavigationRouter[] = [
     logo: GraduationCap,
     name: "Учебные сессии",
     href: DASHBOARD_PAGES.TRAINING_SESSIONS,
+    active: true,
   },
   {
     logo: Door,
