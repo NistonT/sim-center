@@ -8,6 +8,12 @@
   /*----- Font Manrope -----*/
 
   --font-manrope-bold: "Manrope-Bold";
+  --font-manrope-extraBold: "Manrope-ExtraBold";
+  --font-manrope-extraLight: "Manrope-ExtraLight";
+  --font-manrope-light: "Manrope-Light";
+  --font-manrope-medium: "Manrope-Medium";
+  --font-manrope-regular: "Manrope-Regular";
+  --font-manrope-semiBold: "Manrope-SemiBold";
 
   /*-----*/
 
@@ -102,6 +108,16 @@
   --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
+
+  /* font Manrope */
+
+  --font-manropeBold: var(--font-manrope-bold);
+  --font-manropeExtraBold: var(--font-manrope-bold);
+  --font-manropeExtraLight: var(--font-manrope-bold);
+  --font-manropeLight: var(--font-manrope-light);
+  --font-manropeMedium: var(--font-manrope-medium);
+  --font-manropeRegular: var(--font-manrope-regular);
+  --font-manropeSemiBold: var(--font-manrope-semiBold);
 }
 
 .dark {
@@ -136,6 +152,16 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  /* font Manrope */
+
+  --font-manropeBold: var(--font-manrope-bold);
+  --font-manropeExtraBold: var(--font-manrope-bold);
+  --font-manropeExtraLight: var(--font-manrope-bold);
+  --font-manropeLight: var(--font-manrope-light);
+  --font-manropeMedium: var(--font-manrope-medium);
+  --font-manropeRegular: var(--font-manrope-regular);
+  --font-manropeSemiBold: var(--font-manrope-semiBold);
 }
 
 @layer base {
