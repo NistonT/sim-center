@@ -1,7 +1,16 @@
-import "./App.css";
+import { Container } from "./components/Container";
 
 function App() {
-	return <div className='text-red-500'>hello world</div>;
+  return (
+    <Container>
+      <div className="flex w-full">
+        <div>
+          <div className="font-man"></div>
+        </div>
+        <div>block2</div>
+      </div>
+    </Container>
+  );
 }
 
 export default App;
