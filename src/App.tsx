@@ -1,25 +1,20 @@
 import { Container } from "./components/Container";
-import { Logo } from "./components/Main/Logo";
-import { navigation } from "./constants/navigation.constants";
+import { Header } from "./components/Header";
+
+import { Panel } from "./components/Main/Panel";
 
 function App() {
   return (
     <Container>
       <div className="flex w-full">
-        <div>
-          <Logo />
-          <div>
-            {navigation.map((link) => (
-              <div className="flex">
-                <div>
-                  <img src={link.logo} alt={`nav-${link.href}`} />
-                </div>
-                <div className="font-manropeExtraBold font-extrabold text-[15px] leading-[24px] tracking-normal align-middle">{link.name}</div>
-              </div>
-            ))}
+        <Panel />
+        <div className="bg-main w-full">
+          <div className="bg-white py-4 px-6 rounded-xl m-2">
+            <Header />
+
+            <div></div>
           </div>
         </div>
-        <div>block2</div>
       </div>
     </Container>
   );
