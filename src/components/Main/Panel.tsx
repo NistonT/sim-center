@@ -27,7 +27,7 @@ export const Panel = () => {
             opacity: 0,
             transition: { duration: 0.2 },
           }}
-          className="relative w-full max-w-[274px]"
+          className="relative w-full max-w-[274px] flex flex-col justify-between"
         >
           <m.div
             key="close_button"
@@ -39,9 +39,11 @@ export const Panel = () => {
             <m.img src={PanelButton} alt="PanelButton" initial={{ rotate: 180 }} animate={{ rotate: 0 }} transition={{ duration: 0.3 }} />
           </m.div>
 
-          <Logo />
-          <Navigation />
-          <div className="px-3 pb-[18px]">
+          <div>
+            <Logo />
+            <Navigation />
+          </div>
+          <div className="px-3 pb-[18px] flex flex-col">
             <Account />
             <Logout />
             <Language />
