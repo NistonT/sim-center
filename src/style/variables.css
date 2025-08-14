@@ -19,7 +19,10 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #f9fafb;
+  background-color: #f4f4f8;
+
+  --main: #f4f4f8;
+  --mainBlue: #3761f3
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -103,6 +106,9 @@
   --color-sidebar-border: var(--sidebar-border);
   --color-sidebar-ring: var(--sidebar-ring);
 
+  --color-main: var(--main);
+  --color-blue: var(--mainBlue);
+
   /* font Manrope */
 
   --font-manropeBold: var(--font-manrope-bold);
@@ -146,6 +152,9 @@
   --sidebar-accent-foreground: oklch(0.985 0 0);
   --sidebar-border: oklch(1 0 0 / 10%);
   --sidebar-ring: oklch(0.556 0 0);
+
+  --color-main: var(--main);
+  --color-blue: var(--mainBlue);
 
   /* font Manrope */
 
