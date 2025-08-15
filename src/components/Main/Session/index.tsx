@@ -1,7 +1,7 @@
-import Down from "@/assets/svg/Down.svg";
 import { ISession } from "@/types/sessions.type";
-import { formatDateRange } from "@/utils/formatTime";
 import { AnimatePresence, m } from "motion/react";
+import { HeaderTable } from "./HeaderTable";
+import { TimeAndDate } from "./TimeAndDate";
 type Props = {
   paginatedData: ISession[];
 };
@@ -9,19 +9,7 @@ type Props = {
 export const Session = ({ paginatedData }: Props) => {
   return (
     <div className="mt-4 border border-[#e8eaec] border-b-0 rounded-xl rounded-b-none">
-      <div className="grid grid-cols-[1fr_1fr_3fr_1fr_2fr_1fr] gap-4 bg-gray-200 font-manropeExtraBold font-extrabold text-[17px] leading-7 tracking-normal py-2.5 px-4 rounded-t-xl">
-        <div className="flex items-center gap-2.5 cursor-pointer">
-          <span>Дата и время</span>
-          <div>
-            <img src={Down} alt="sort" className="transition-transform duration-200" />
-          </div>
-        </div>
-        <div>Статус</div>
-        <div>Название учебного модуля</div>
-        <div>Тип сессии</div>
-        <div>Комната</div>
-        <div>Группа</div>
-      </div>
+      <HeaderTable />
 
       <div className="max-h-[730px] overflow-y-scroll">
         <AnimatePresence mode="popLayout">
@@ -34,11 +22,9 @@ export const Session = ({ paginatedData }: Props) => {
               transition={{ duration: 0.2, delay: index * 0.03 }}
               className={`grid grid-cols-[1fr_1fr_3fr_1fr_2fr_1fr] gap-4 p-4 ${
                 index % 2 === 0 ? "bg-white" : "bg-gray-100"
-              } border-b border-gray-200`}
+              } border-b border-gray-200 hover:bg-gray-200`}
             >
-              <div className="font-manropeMedium font-medium text-[15px] leading-6 tracking-normal text-[#2f3144] whitespace-nowrap">
-                {formatDateRange(elem.start, elem.end)}
-              </div>
+              <TimeAndDate start={elem.start} end={elem.end} />
 
               <div className="relative">
                 <div
