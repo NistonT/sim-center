@@ -1,7 +1,12 @@
 export const formatDateRange = (start: string, end: string): string => {
-  // Убедимся, что это строки
-  if (typeof start !== "string" || typeof end !== "string") {
-    console.error("start or end is not a string:", { start, end });
+  if (!start || !end) return "Неверная дата";
+
+  const fixIso = (s: string) => s.replace(/\.\d{6}/, ".000").replace(/Z$/, "") + "Z";
+
+  const startDate = new Date(fixIso(start));
+  const endDate = new Date(fixIso(end));
+
+  if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
     return "Неверная дата";
   }
 
@@ -12,9 +17,6 @@ export const formatDateRange = (start: string, end: string): string => {
   // Если не было микросекунд — добавим .000Z
   const finalStart = cleanStart.replace(/Z$/, "") + "Z";
   const finalEnd = cleanEnd.replace(/Z$/, "") + "Z";
-
-  const startDate = new Date(finalStart);
-  const endDate = new Date(finalEnd);
 
   // Проверка валидности
   if (isNaN(startDate.getTime()) || isNaN(endDate.getTime())) {
