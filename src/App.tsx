@@ -10,19 +10,15 @@ import { ITEMS_PER_PAGE } from "./constants/itemsPerPage.constants";
 function App() {
   const [searchTerm, setSearchTerm] = useState("");
 
-  // Уникальные сессии
   const dataSession = data.sessions.filter((session, index, self) => self.findIndex((s) => s.id === session.id) === index);
 
-  // Фильтрация по "module"
   const filteredSessions = dataSession.filter((session) => session.module.toLowerCase().includes(searchTerm.toLowerCase()));
 
-  // Пагинация
   const [currentPage, setCurrentPage] = useState(1);
   const totalPages = Math.max(1, Math.ceil(filteredSessions.length / ITEMS_PER_PAGE));
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
   const paginatedData = filteredSessions.slice(startIndex, startIndex + ITEMS_PER_PAGE);
 
-  // Сброс страницы при поиске
   useEffect(() => {
     setCurrentPage(1);
   }, [searchTerm]);
