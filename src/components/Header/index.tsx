@@ -2,7 +2,12 @@ import Filter from "@/assets/svg/filter.svg";
 import Icon_left from "@/assets/svg/Icon_Left.svg";
 import Search from "@/assets/svg/search.svg";
 
-export const Header = () => {
+type Props = {
+  searchTerm: string;
+  onSearchChange: (value: string) => void;
+};
+
+export const Header = ({ searchTerm, onSearchChange }: Props) => {
   return (
     <div className="flex justify-between items-center">
       <h1 className="font-manropeExtraBold font-extrabold text-2xl leading-7 tracking-normal align-middle">Учебные сессии</h1>
@@ -14,6 +19,8 @@ export const Header = () => {
           <input
             type="text"
             placeholder="Поиск..."
+            value={searchTerm}
+            onChange={(e) => onSearchChange(e.target.value)}
             className="font-manropeMedium font-medium text-[13px] leading-5 tracking-normal py-3 pl-12 border border-gray-200 rounded-xl transition-all duration-200"
           />
         </div>
