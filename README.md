@@ -43,11 +43,11 @@
 ```ts
 class DASHBOARD {
   SCHEDULE = "/";
-  TRAINING_SESSIONS = "/training-sessions";
-  LIST_OF_ROOMS = "/rooms";
-  USERS = "/users";
-  STUDY_GROUPS = "/groups";
-  LIST_OF_DEVICES = "/devices";
-  SYSTEM_SETTINGS = "/settings";
-  ARCHIVE = "/archive";
+  TRAINING_SESSIONS = "/";
+  LIST_OF_ROOMS = "/";
+  USERS = "/";
+  STUDY_GROUPS = "/";
+  LIST_OF_DEVICES = "/";
+  SYSTEM_SETTINGS = "/";
+  ARCHIVE = "/";
 }
