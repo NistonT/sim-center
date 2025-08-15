@@ -1,114 +1,20 @@
+import Down from "@/assets/svg/Down.svg";
+import data from "@/data/data1.json";
 import { Container } from "./components/Container";
 import { Header } from "./components/Header";
-
+import { Pagination } from "./components/Main/Pagination";
 import { Panel } from "./components/Main/Panel";
-
-import data from "@/data/data1.json";
+import { ITEMS_PER_PAGE } from "./constants/itemsPerPage.constants";
+import { usePaginationStore } from "./store/usePagination";
 import { formatDateRange } from "./utils/formatTime";
 
-import Down from "@/assets/svg/Down.svg";
-import { useState } from "react";
-
-const ITEMS_PER_PAGE = 11;
-
 function App() {
-  const [currentPage, setCurrentPage] = useState(1);
-
+  const currentPage = usePaginationStore((state) => state.currentPage);
+  const setCurrentPage = usePaginationStore((state) => state.setCurrentPage);
   const dataSession = data.sessions.filter((session, index, self) => self.findIndex((s) => s.id === session.id) === index);
-
-  const totalPages = Math.ceil(dataSession.length / ITEMS_PER_PAGE);
-
   const startIndex = (currentPage - 1) * ITEMS_PER_PAGE;
-  const endIndex = startIndex + ITEMS_PER_PAGE;
-  const dataPagination = dataSession.slice(startIndex, endIndex);
-
-  const goToPage = (page: number) => {
-    if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page);
-    }
-  };
-
-  const renderPageNumbers = () => {
-    const pages = [];
-    const visiblePages = 4;
-    const ellipsis = (
-      <span key="dots" className="w-10 h-10 flex items-center justify-center text-sm text-gray-500">
-        ...
-      </span>
-    );
-
-    pages.push(
-      <button
-        key={1}
-        onClick={() => goToPage(1)}
-        className={`w-10 h-10 flex items-center justify-center rounded-full text-sm font-medium
-        ${currentPage === 1 ? "bg-blue-600 text-white" : "hover:bg-gray-200"}
-      `}
-      >
-        1
-      </button>,
-    );
-
-    if (totalPages <= visiblePages + 1) {
-      for (let i = 2; i <= totalPages; i++) {
-        pages.push(
-          <button
-            key={i}
-            onClick={() => goToPage(i)}
-            className={`w-10 h-10 flex items-center justify-center rounded-full text-sm font-medium
-            ${currentPage === i ? "bg-blue-600 text-white" : "hover:bg-gray-200"}
-          `}
-          >
-            {i}
-          </button>,
-        );
-      }
-    } else {
-      let start = Math.max(2, currentPage - 2);
-      let end = start + visiblePages - 1;
-
-      if (end >= totalPages) {
-        end = totalPages - 1;
-        start = Math.max(2, end - visiblePages + 1);
-      }
-
-      if (start > 2) {
-        pages.push(ellipsis);
-      }
-
-      for (let i = start; i <= end; i++) {
-        pages.push(
-          <button
-            key={i}
-            onClick={() => goToPage(i)}
-            className={`w-10 h-10 flex items-center justify-center rounded-full text-sm font-medium
-            ${currentPage === i ? "bg-blue-600 text-white" : "hover:bg-gray-200"}
-          `}
-          >
-            {i}
-          </button>,
-        );
-      }
-
-      if (end < totalPages - 1) {
-        pages.push(ellipsis);
-      }
-
-      pages.push(
-        <button
-          key={totalPages}
-          onClick={() => goToPage(totalPages)}
-          className={`w-10 h-10 flex items-center justify-center rounded-full text-sm font-medium
-          ${currentPage === totalPages ? "bg-blue-600 text-white" : "hover:bg-gray-200"}
-        `}
-        >
-          {totalPages}
-        </button>,
-      );
-    }
-
-    return pages;
-  };
+  const paginatedData = dataSession.slice(startIndex, startIndex + ITEMS_PER_PAGE);
+  const totalPages = Math.max(1, Math.ceil(dataSession.length / ITEMS_PER_PAGE));
 
   return (
     <Container>
@@ -118,7 +24,7 @@ function App() {
           <div className="bg-white py-4 px-6 rounded-xl m-2">
             <Header />
 
-            <div className="mt-4 border border-[#e8eaec]">
+            <div className="mt-4 border border-[#e8eaec] border-b-0 rounded-xl rounded-b-none">
               <div className="grid grid-cols-[1fr_1fr_3fr_1fr_2fr_1fr] gap-4 bg-gray-200 font-manropeExtraBold font-extrabold text-[17px] leading-7 tracking-normal py-2.5 px-4 rounded-t-xl">
                 <div className="flex items-center gap-2.5">
                   <span>Дата и время</span>
@@ -133,7 +39,7 @@ function App() {
                 <div>Группа</div>
               </div>
 
-              {dataPagination.map((elem, index) => (
+              {paginatedData.map((elem, index) => (
                 <div
                   key={elem.id}
                   className={`grid grid-cols-[1fr_1fr_3fr_1fr_2fr_1fr] gap-4 p-4 ${
@@ -207,29 +113,7 @@ function App() {
               ))}
             </div>
 
-            <div className="flex items-center justify-center gap-2 mt-6 mb-4">
-              <button
-                onClick={() => goToPage(currentPage - 1)}
-                disabled={currentPage === 1}
-                className={`w-10 h-10 flex items-center justify-center rounded-full
-                  ${currentPage === 1 ? "text-gray-400 cursor-not-allowed" : "hover:bg-gray-200"}
-                `}
-              >
-                AA
-              </button>
-
-              {renderPageNumbers()}
-
-              <button
-                onClick={() => goToPage(currentPage + 1)}
-                disabled={currentPage === totalPages}
-                className={`w-10 h-10 flex items-center justify-center rounded-full
-                  ${currentPage === totalPages ? "text-gray-400 cursor-not-allowed" : "hover:bg-gray-200"}
-                `}
-              >
-                B
-              </button>
-            </div>
+            <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
           </div>
         </div>
       </div>
