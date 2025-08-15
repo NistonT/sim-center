@@ -1,54 +1,53 @@
-# React + TypeScript + Vite
+# 🎓 Учебный портал — Управление сессиями
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+> Быстро разработанный админ-интерфейс для управления учебными сессиями. Сверстан по макету из Figma, реализован за полтора дня с фокусом на UX и интерактивности.
 
-Currently, two official plugins are available:
+🚀 **Деплой на Vercel:** [https://sim-center.vercel.app/](https://sim-center.vercel.app/)  
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+---
 
-## Expanding the ESLint configuration
+## 🚀 Основные возможности
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- **Сворачиваемая боковая панель (колонка)** — удобная навигация с анимацией.
+- **Рабочая пагинация** — корректное разбиение данных на страницы.
+- **Поиск по названию модуля** — быстрый фильтр в реальном времени.
+- **Окно создания сессии** — модальное окно с формой для добавления новой сессии.
+- **Приятные анимации** — добавлены с помощью `motion` для улучшения восприятия интерфейса.
 
-```js
-export default tseslint.config({
-  extends: [
-    // Remove ...tseslint.configs.recommended and replace with this
-    ...tseslint.configs.recommendedTypeChecked,
-    // Alternatively, use this for stricter rules
-    ...tseslint.configs.strictTypeChecked,
-    // Optionally, add this for stylistic rules
-    ...tseslint.configs.stylisticTypeChecked,
-  ],
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+---
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+## 🛠️ Используемые технологии
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+| Технология       | Назначение |
+|------------------|-----------|
+| `Vite`           | Быстрая сборка и HMR |
+| `React`          | Основной UI-фреймворк |
+| `TypeScript`     | Типизация для надежности кода |
+| `Tailwind CSS`   | Адаптивная и быстрая стилизация |
+| `Lucide-react`   | Иконки |
+| `Zustand`        | Легковесное управление состоянием |
+| `Motion`  | Анимации и плавные переходы |
+| `ESLint + Prettier` | Код-стиль и форматирование |
 
-export default tseslint.config({
-  plugins: {
-    // Add the react-x and react-dom plugins
-    'react-x': reactX,
-    'react-dom': reactDom,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended typescript rules
-    ...reactX.configs['recommended-typescript'].rules,
-    ...reactDom.configs.recommended.rules,
-  },
-})
-```
+---
+
+## 🔮 Планы по улучшению
+
+В будущем планируется реализовать:
+
+- 🔍 **Окно фильтрации** — расширенные фильтры по дате, статусу, аудитории и т.д.
+- 🔐 **Окно авторизации** — вход и проверка прав доступа.
+- 🔐 **Работа с правами доступа** — разграничение ролей (админ, преподаватель, студент).
+- 📊 **Реализация DASHBOARD маршрутов** — полная навигация по системе:
+
+```ts
+class DASHBOARD {
+  SCHEDULE = "/";
+  TRAINING_SESSIONS = "/training-sessions";
+  LIST_OF_ROOMS = "/rooms";
+  USERS = "/users";
+  STUDY_GROUPS = "/groups";
+  LIST_OF_DEVICES = "/devices";
+  SYSTEM_SETTINGS = "/settings";
+  ARCHIVE = "/archive";
+}
