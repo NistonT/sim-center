@@ -4,6 +4,8 @@ type Props = {
   groups: IGroup[];
 };
 
+// Группы
+
 export const Groups = ({ groups }: Props) => {
   return (
     <div className="font-manropeMedium font-medium text-[15px] text-[#2f3144]">

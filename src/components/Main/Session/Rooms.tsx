@@ -4,6 +4,8 @@ type Props = {
   rooms: IRoom[];
 };
 
+// Команты
+
 export const Rooms = ({ rooms }: Props) => {
   return (
     <div className="font-manropeMedium font-medium text-[15px] text-[#2f3144]">

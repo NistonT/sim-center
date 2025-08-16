@@ -1,3 +1,5 @@
+// Ссылки на страницы
+
 class DASHBOARD {
   SCHEDULE = "/";
   TRAINING_SESSIONS = "/";

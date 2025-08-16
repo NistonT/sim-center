@@ -5,6 +5,8 @@ type Props = {
   name: string;
 };
 
+// Ссылка
+
 export const Link = ({ active, logo, href, name }: Props) => {
   return (
     <div

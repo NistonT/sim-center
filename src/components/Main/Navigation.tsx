@@ -1,6 +1,8 @@
 import { navigation } from "@/constants/navigation.constants";
 import { Link } from "../Link";
 
+// Навигация
+
 export const Navigation = () => {
   return (
     <div className="flex flex-col gap-1 px-3">

@@ -1,5 +1,7 @@
 import BM from "@/assets/svg/BM.svg";
 
+// Аккаунт
+
 export const Account = () => {
   return (
     <div className="flex shadow-lg gap-3 py-3 justify-center rounded-2xl">

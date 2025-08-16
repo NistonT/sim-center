@@ -16,6 +16,8 @@ export interface INavigationRouter {
   active?: boolean;
 }
 
+// Навигация
+
 export const navigation: INavigationRouter[] = [
   {
     logo: CalendarBlank,

@@ -2,6 +2,8 @@ type Props = {
   name: string;
 };
 
+// Статус
+
 export const Status = ({ name }: Props) => {
   return (
     <div className="relative">
