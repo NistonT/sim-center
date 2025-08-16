@@ -8,6 +8,8 @@ import { Logout } from "./Logout";
 import { Navigation } from "./Navigation";
 import { Version } from "./Version";
 
+// Боковая панель
+
 export const Panel = () => {
   const { isOpenPanel, setIsOpenPanel } = useModalPanel();
 

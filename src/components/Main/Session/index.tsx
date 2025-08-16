@@ -18,7 +18,7 @@ export const Session = ({ paginatedData }: Props) => {
       {/* Название колонок */}
       <HeaderTable />
 
-      <div className="max-h-[730px] overflow-y-scroll">
+      <div className="h-[730px] overflow-y-scroll">
         <AnimatePresence mode="popLayout">
           {paginatedData.map((elem, index) => (
             <m.div

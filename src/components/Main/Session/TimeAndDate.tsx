@@ -5,6 +5,8 @@ type Props = {
   end: string;
 };
 
+// Дата и время
+
 export const TimeAndDate = ({ start, end }: Props) => {
   return (
     <>

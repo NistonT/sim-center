@@ -6,9 +6,10 @@ import { Pagination } from "./components/Main/Pagination";
 import { Panel } from "./components/Main/Panel";
 import { Session } from "./components/Main/Session";
 import { ITEMS_PER_PAGE } from "./constants/itemsPerPage.constants";
+import { useSearchTerm } from "./store/useSearchTerm";
 
 function App() {
-  const [searchTerm, setSearchTerm] = useState("");
+  const { searchTerm } = useSearchTerm();
 
   const dataSession = data.sessions.filter((session, index, self) => self.findIndex((s) => s.id === session.id) === index);
 
@@ -29,7 +30,7 @@ function App() {
         <Panel />
         <div className="bg-main w-full">
           <div className="bg-white py-4 px-6 rounded-xl m-2">
-            <Header searchTerm={searchTerm} onSearchChange={setSearchTerm} />
+            <Header />
 
             <Session paginatedData={paginatedData} />
 

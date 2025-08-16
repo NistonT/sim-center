@@ -1,6 +1,8 @@
 import Down from "@/assets/svg/Down.svg";
 import Flag from "@/assets/svg/flag.svg";
 
+// Язык
+
 export const Language = () => {
   return (
     <div className="flex justify-between items-center p-3 border border-gray-200 rounded-2xl mt-1 hover:bg-gray-100 transition-all duration-100">

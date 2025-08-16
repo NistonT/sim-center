@@ -1,5 +1,7 @@
 import logo from "@/assets/svg/icon.svg";
 
+// Логотип
+
 export const Logo = () => {
   return (
     <div className="flex gap-3.5 items-center py-5 px-10 cursor-default select-none">

@@ -6,6 +6,8 @@ type Props = {
   onPageChange: (page: number) => void;
 };
 
+// Пагинация
+
 export const Pagination = ({ currentPage, totalPages, onPageChange }: Props) => {
   const visiblePages = 4;
 
