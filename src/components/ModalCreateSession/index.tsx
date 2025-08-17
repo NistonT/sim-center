@@ -3,7 +3,7 @@ import { useModalCreateSession } from "@/store/useModalCreateSession";
 import { X } from "lucide-react";
 import { AnimatePresence, m } from "motion/react";
 
-// Переделать
+// Переделать модальное окно
 
 export const ModalCreateSession = () => {
   const { isModal, setIsModal } = useModalCreateSession();
