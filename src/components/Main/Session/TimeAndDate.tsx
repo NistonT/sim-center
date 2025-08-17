@@ -10,8 +10,8 @@ type Props = {
 export const TimeAndDate = ({ start, end }: Props) => {
   return (
     <>
-      <div className="font-manropeMedium font-medium text-[15px] leading-6 tracking-normal text-[#2f3144] whitespace-nowrap">
-        {formatDateRange(start, end)}
+      <div className="font-manropeMedium font-medium text-[15px] leading-6 tracking-normal text-[#2f3144] whitespace-nowrap flex justify-center items-center">
+        <span>{formatDateRange(start, end)}</span>
       </div>
     </>
   );
