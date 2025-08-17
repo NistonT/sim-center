@@ -16,7 +16,7 @@ export const SearchModule = () => {
         placeholder="Поиск..."
         value={searchTerm}
         onChange={(e) => setSearchTerm(e.target.value)}
-        className="font-manropeMedium font-medium text-[13px] leading-5 tracking-normal py-3 pl-12 border border-gray-200 rounded-xl transition-all duration-200"
+        className="font-manropeMedium font-medium text-[13px] leading-5 tracking-normal py-3 pl-12 border border-gray-200 rounded-xl transition-all duration-200 hover:border-gray-400"
       />
     </div>
   );

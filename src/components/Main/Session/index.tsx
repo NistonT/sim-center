@@ -20,8 +20,10 @@ export const Session = ({ paginatedData }: Props) => {
       <div className="h-[730px] overflow-y-scroll">
         <AnimatePresence mode="popLayout">
           {isSort
-            ? paginationDataSort.map((elem, index) => <PaginationData elem={elem} index={index} />)
-            : paginatedData.map((elem, index) => <PaginationData elem={elem} index={index} />)}
+            ? // Сортировка по дате и времени
+              paginationDataSort.map((elem, index) => <PaginationData elem={elem} index={index} />)
+            : // Обычный вывод
+              paginatedData.map((elem, index) => <PaginationData elem={elem} index={index} />)}
         </AnimatePresence>
       </div>
     </div>

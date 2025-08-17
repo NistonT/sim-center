@@ -3,7 +3,7 @@ import { useModalCreateSession } from "@/store/useModalCreateSession";
 import { X } from "lucide-react";
 import { AnimatePresence, m } from "motion/react";
 
-// Переделать
+// Переделать модальное окно
 
 export const ModalCreateSession = () => {
   const { isModal, setIsModal } = useModalCreateSession();
@@ -23,7 +23,7 @@ export const ModalCreateSession = () => {
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.95, opacity: 0 }}
             transition={{ type: "spring", damping: 20, stiffness: 300 }}
-            className="bg-white rounded-xl max-w-lg w-full mx-4 max-h-[90vh] overflow-y-auto"
+            className="bg-white rounded-xl max-w-xl w-full mx-4 max-h-screen overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
             <div className="flex justify-between items-center p-6 border-b border-gray-200">
@@ -36,42 +36,23 @@ export const ModalCreateSession = () => {
             <form className="p-6 space-y-5">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="block font-manropeMedium text-sm text-[#2f3144] mb-2">Дата начала</label>
-                  <input
-                    type="datetime-local"
-                    name="start"
-                    className="w-full p-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#3761f3]"
-                    required
-                  />
+                  <label className="block font-manropeMedium text-[15px] text-[#2f3144] mb-2">Дата начала</label>
+                  <input type="datetime-local" className="w-full p-3 border border-gray-300 rounded-lg text-[13px]" required />
                 </div>
                 <div>
-                  <label className="block font-manropeMedium text-sm text-[#2f3144] mb-2">Дата окончания</label>
-                  <input
-                    type="datetime-local"
-                    name="end"
-                    className="w-full p-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#3761f3]"
-                    required
-                  />
+                  <label className="block font-manropeMedium text-[15px] text-[#2f3144] mb-2">Дата окончания</label>
+                  <input type="datetime-local" className="w-full p-3 border border-gray-300 rounded-lg text-[13px]" required />
                 </div>
               </div>
 
               <div>
-                <label className="block font-manropeMedium text-sm text-[#2f3144] mb-2">Название учебного модуля</label>
-                <input
-                  type="text"
-                  name="module"
-                  placeholder="Введите название"
-                  className="w-full p-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#3761f3]"
-                  required
-                />
+                <label className="block font-manropeMedium text-[15px] text-[#2f3144] mb-2">Название учебного модуля</label>
+                <input type="text" placeholder="Введите название" className="w-full p-3 border border-gray-300 rounded-lg text-[13px]" required />
               </div>
 
               <div>
-                <label className="block font-manropeMedium text-sm text-[#2f3144] mb-2">Тип сессии</label>
-                <select
-                  name="type"
-                  className="w-full p-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#3761f3]"
-                >
+                <label className="block font-manropeMedium text-[15px] text-[#2f3144] mb-2">Тип сессии</label>
+                <select className="w-full p-3 border border-gray-300 rounded-lg text-[13px]">
                   {TYPES.map((t) => (
                     <option key={t.id} value={t.id}>
                       {t.name}
@@ -81,14 +62,10 @@ export const ModalCreateSession = () => {
               </div>
 
               <div>
-                <label className="block font-manropeMedium text-sm text-[#2f3144] mb-2">Комнаты</label>
+                <label className="block font-manropeMedium text-[15px] text-[#2f3144] mb-2">Комнаты</label>
 
                 <div className="mt-2 flex gap-2">
-                  <input
-                    type="text"
-                    placeholder="Введите название комнаты"
-                    className="flex-1 p-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#3761f3]"
-                  />
+                  <input type="text" placeholder="Введите название комнаты" className="flex-1 p-3 border border-gray-300 rounded-lg text-[13px]" />
                   <button type="button" className="px-4 py-2 bg-[#3761f3] text-white rounded-lg text-sm hover:bg-[#2a50d0]">
                     Добавить
                   </button>
@@ -96,14 +73,10 @@ export const ModalCreateSession = () => {
               </div>
 
               <div>
-                <label className="block font-manropeMedium text-sm text-[#2f3144] mb-2">Группы</label>
+                <label className="block font-manropeMedium text-[15px] text-[#2f3144] mb-2">Группы</label>
 
                 <div className="mt-2 flex gap-2">
-                  <input
-                    type="text"
-                    placeholder="Введите название группы"
-                    className="flex-1 p-3 border border-gray-300 rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-[#3761f3]"
-                  />
+                  <input type="text" placeholder="Введите название группы" className="flex-1 p-3 border border-gray-300 rounded-lg text-[13px]" />
                   <button type="button" className="px-4 py-2 bg-[#3761f3] text-white rounded-lg text-sm hover:bg-[#2a50d0]">
                     Добавить
                   </button>
