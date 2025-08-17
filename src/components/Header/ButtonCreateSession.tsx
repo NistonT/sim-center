@@ -6,7 +6,7 @@ export const ButtonCreateSession = () => {
   const { setIsModal } = useModalCreateSession();
 
   return (
-    <div className="bg-[#3761f3] text-white py-2.5 px-6 rounded-xl">
+    <div className="bg-[#3761f3] text-white py-2.5 px-6 rounded-xl hover:scale-105 transition-all">
       <button
         onClick={() => setIsModal(true)}
         type="button"

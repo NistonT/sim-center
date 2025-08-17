@@ -11,7 +11,11 @@ export const HeaderTable = () => {
       <button onClick={() => setIsSort(!isSort)} type="button" className="flex items-center gap-2.5 cursor-pointer">
         <span>Дата и время</span>
         <div>
-          <img src={Down} alt="sort" className="transition-transform duration-200" />
+          {isSort ? (
+            <img src={Down} alt="sort" className="transform rotate-180 transition-transform duration-200" />
+          ) : (
+            <img src={Down} alt="sort" className="transition-transform duration-200" />
+          )}
         </div>
       </button>
       <div>Статус</div>
